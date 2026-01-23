@@ -136,28 +136,6 @@ body {
     border-color: var(--primary);
 }
 
-.login-info {
-    margin-top: 2rem;
-    padding: 1.5rem;
-    background: var(--bg);
-    border-radius: 8px;
-    text-align: center;
-}
-
-.login-info a {
-    color: var(--primary);
-    text-decoration: none;
-    font-weight: bold;
-}
-
-.login-info code {
-    background: white;
-    padding: 2px 8px;
-    border-radius: 4px;
-    font-family: monospace;
-    color: var(--primary);
-}
-
 /* Dashboard */
 .dashboard-header {
     display: flex;

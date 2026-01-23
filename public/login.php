@@ -102,8 +102,6 @@ $page_title = 'Login';
                 
                 <button type="submit" class="btn btn-primary btn-block">Login</button>
             </form>
-            
-            <div class="login-info"></div>
         </div>
     </div>
     
