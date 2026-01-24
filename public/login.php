@@ -102,6 +102,12 @@ $page_title = 'Login';
                 
                 <button type="submit" class="btn btn-primary btn-block">Login</button>
             </form>
+            
+            <div class="login-info">
+                
+                <hr style="margin: 15px 0; border: none; border-top: 1px solid #ddd;">
+                <p>Don't have an account? <a href="register.php" style="color: #4F46E5; font-weight: bold;">Register here</a></p>
+            </div>
         </div>
     </div>
     

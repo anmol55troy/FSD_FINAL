@@ -23,6 +23,7 @@ if (session_status() === PHP_SESSION_NONE) {
                 <li><a href="index.php">Dashboard</a></li>
                 <li><a href="add.php">Add Product</a></li>
                 <li><a href="search.php">Search</a></li>
+                <li><a href="profile.php">Profile</a></li>
                 <li><a href="logout.php" class="logout-btn">Logout</a></li>
             </ul>
             <?php endif; ?>
