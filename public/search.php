@@ -153,7 +153,7 @@ include '../includes/header.php';
         </div>
         
         <div class="form-actions">
-            <button type="submit" class="btn btn-primary">🔍 Search</button>
+            <button type="submit" class="btn btn-primary">Search</button>
             <button type="button" class="btn btn-secondary" onclick="resetSearch()">Clear</button>
         </div>
     </form>
