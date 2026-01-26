@@ -201,7 +201,7 @@ include '../includes/header.php';
                                 <a href="delete.php?id=<?php echo $product['product_id']; ?>" 
                                    class="btn btn-sm btn-delete" 
                                    onclick="return confirm('Are you sure you want to delete this product?');">
-                                    🗑️ Delete
+                                     Delete
                                 </a>
                             </td>
                         </tr>
