@@ -30,14 +30,16 @@ if (session_status() === PHP_SESSION_NONE) {
         </div>
     </nav>
     
+    <?php if (isLoggedIn()): ?>
     <div class="top-header">
         <div class="user-info">
             <span><?php echo isset($_SESSION['username']) ? escape($_SESSION['username']) : 'User'; ?></span>
             <div class="avatar">
-                <?php echo substr($_SESSION['username'] ?? 'U', 0, 1); ?>
+                <?php echo escape(substr($_SESSION['username'], 0, 1)); ?>
             </div>
         </div>
     </div>
+    <?php endif; ?>
     
     <main class="main-content">
         <div class="container">

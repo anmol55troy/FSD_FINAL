@@ -105,11 +105,11 @@ include '../includes/header.php';
                 <td><strong><?php echo formatPrice($product['price']); ?></strong></td>
                 <td><?php echo escape($product['quantity']); ?></td>
                 <td class="actions">
-                    <a href="edit.php?id=<?php echo $product['product_id']; ?>" class="btn btn-sm btn-edit"> Edit</a>
+                    <a href="edit.php?id=<?php echo $product['product_id']; ?>" class="btn btn-sm btn-edit">Edit</a>
                     <form method="POST" action="delete.php" style="display:inline;" onsubmit="return confirm('Are you sure you want to delete this product?');">
                         <input type="hidden" name="id" value="<?php echo $product['product_id']; ?>">
                         <input type="hidden" name="csrf_token" value="<?php echo generateCSRFToken(); ?>">
-                        <button type="submit" class="btn btn-sm btn-delete"> Delete</button>
+                        <button type="submit" class="btn btn-sm btn-delete">Delete</button>
                     </form>
                 </td>
             </tr>
