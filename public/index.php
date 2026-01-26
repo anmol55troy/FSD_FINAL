@@ -57,17 +57,6 @@ include '../includes/header.php';
             ?>
         </p>
     </div>
-    <div class="stat-card">
-        <h3>Low Stock</h3>
-        <p class="stat-number">
-            <?php 
-            $low_stock = array_filter($products, function($p) {
-                return $p['quantity'] < 10;
-            });
-            echo count($low_stock);
-            ?>
-        </p>
-    </div>
 </div>
 
 <div class="table-controls">
@@ -103,7 +92,6 @@ include '../includes/header.php';
                 <th>Category</th>
                 <th>Price</th>
                 <th>Quantity</th>
-                <th>Stock Status</th>
                 <th>Actions</th>
             </tr>
         </thead>
@@ -116,21 +104,12 @@ include '../includes/header.php';
                 <td><span class="badge badge-category"><?php echo escape($product['category']); ?></span></td>
                 <td><strong><?php echo formatPrice($product['price']); ?></strong></td>
                 <td><?php echo escape($product['quantity']); ?></td>
-                <td>
-                    <?php if ($product['quantity'] == 0): ?>
-                        <span class="badge badge-danger">Out of Stock</span>
-                    <?php elseif ($product['quantity'] < 10): ?>
-                        <span class="badge badge-warning">Low Stock</span>
-                    <?php else: ?>
-                        <span class="badge badge-success">In Stock</span>
-                    <?php endif; ?>
-                </td>
                 <td class="actions">
-                    <a href="edit.php?id=<?php echo $product['product_id']; ?>" class="btn btn-sm btn-edit">✏️ Edit</a>
+                    <a href="edit.php?id=<?php echo $product['product_id']; ?>" class="btn btn-sm btn-edit"> Edit</a>
                     <form method="POST" action="delete.php" style="display:inline;" onsubmit="return confirm('Are you sure you want to delete this product?');">
                         <input type="hidden" name="id" value="<?php echo $product['product_id']; ?>">
                         <input type="hidden" name="csrf_token" value="<?php echo generateCSRFToken(); ?>">
-                        <button type="submit" class="btn btn-sm btn-delete">🗑️ Delete</button>
+                        <button type="submit" class="btn btn-sm btn-delete"> Delete</button>
                     </form>
                 </td>
             </tr>

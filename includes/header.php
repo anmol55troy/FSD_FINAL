@@ -15,7 +15,7 @@ if (session_status() === PHP_SESSION_NONE) {
     <nav class="navbar">
         <div class="container">
             <div class="nav-brand">
-                <h2>📦 Product Inventory</h2>
+                <h2> Product Inventory</h2>
             </div>
             <button class="mobile-menu-btn" id="mobileMenuBtn">☰</button>
             <?php if (isLoggedIn()): ?>
@@ -29,6 +29,15 @@ if (session_status() === PHP_SESSION_NONE) {
             <?php endif; ?>
         </div>
     </nav>
+    
+    <div class="top-header">
+        <div class="user-info">
+            <span><?php echo isset($_SESSION['username']) ? escape($_SESSION['username']) : 'User'; ?></span>
+            <div class="avatar">
+                <?php echo substr($_SESSION['username'] ?? 'U', 0, 1); ?>
+            </div>
+        </div>
+    </div>
     
     <main class="main-content">
         <div class="container">

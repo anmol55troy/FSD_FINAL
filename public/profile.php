@@ -117,7 +117,7 @@ include '../includes/header.php';
 ?>
 
 <div class="page-header">
-    <h1>👤 My Profile</h1>
+    <h1> My Profile</h1>
     <a href="index.php" class="btn btn-secondary">← Back to Dashboard</a>
 </div>
 
@@ -170,7 +170,7 @@ include '../includes/header.php';
                 >
             </div>
             
-            <button type="submit" class="btn btn-primary">💾 Update Email</button>
+            <button type="submit" class="btn btn-primary"> Update Email</button>
         </form>
     </div>
     
@@ -214,7 +214,7 @@ include '../includes/header.php';
                 <span class="form-help" id="password-match"></span>
             </div>
             
-            <button type="submit" class="btn btn-primary">🔒 Change Password</button>
+            <button type="submit" class="btn btn-primary"> Change Password</button>
         </form>
     </div>
     
@@ -230,7 +230,7 @@ include '../includes/header.php';
             $stats = $stmt->fetch();
             ?>
             <div class="stat-item">
-                <div class="stat-icon">📦</div>
+                <div class="stat-icon"></div>
                 <div class="stat-details">
                     <div class="stat-label">Total Products in System</div>
                     <div class="stat-value"><?php echo $stats['total']; ?></div>
@@ -238,7 +238,7 @@ include '../includes/header.php';
             </div>
             
             <div class="stat-item">
-                <div class="stat-icon">📅</div>
+                <div class="stat-icon"></div>
                 <div class="stat-details">
                     <div class="stat-label">Days as Member</div>
                     <div class="stat-value">

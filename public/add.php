@@ -73,7 +73,7 @@ include '../includes/header.php';
 ?>
 
 <div class="page-header">
-    <h1>➕ Add New Product</h1>
+    <h1>Add New Product</h1>
     <a href="index.php" class="btn btn-secondary">← Back to Dashboard</a>
 </div>
 
