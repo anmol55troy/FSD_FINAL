@@ -14,6 +14,7 @@ if ($product_id) {
     $stmt = $pdo->prepare("SELECT * FROM products WHERE product_id = ?");
     $stmt->execute([$product_id]);
     $product = $stmt->fetch();
+    // IMPLEMENTATION: Fetch uses prepared statement to avoid SQL injection.
     
     if (!$product) {
         setFlashMessage('error', 'Product not found');
@@ -31,6 +32,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (!verifyCSRFToken($_POST['csrf_token'] ?? '')) {
         $errors[] = 'Invalid CSRF token';
     } else {
+        // IMPLEMENTATION: CSRF token verification and server-side validation
+        // occur here; the UPDATE below uses a prepared statement.
         // Get and sanitize input
         $product_name = trim($_POST['product_name'] ?? '');
         $description = trim($_POST['description'] ?? '');
@@ -70,6 +73,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                      WHERE product_id = ?"
                 );
                 $stmt->execute([$product_name, $description, $category, $price, $quantity, $product_id]);
+                // IMPLEMENTATION: UPDATE uses a prepared statement to prevent SQL injection.
                 
                 setFlashMessage('success', 'Product updated successfully!');
                 header('Location: index.php');

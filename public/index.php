@@ -22,6 +22,9 @@ $order = strtoupper($order) === 'DESC' ? 'DESC' : 'ASC';
 
 $stmt = $pdo->prepare("SELECT * FROM products ORDER BY $sort_by $order");
 $stmt->execute();
+
+// IMPLEMENTATION: Read/list operation for products. Sorting inputs are
+// whitelisted above to avoid injection into the ORDER BY clause.
 $products = $stmt->fetchAll();
 
 include '../includes/header.php';

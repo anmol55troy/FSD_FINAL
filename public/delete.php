@@ -19,6 +19,9 @@ if (!verifyCSRFToken($_POST['csrf_token'] ?? '')) {
     exit;
 }
 
+// IMPLEMENTATION: Deletion enforces POST requests, verifies CSRF token,
+// and uses prepared statements for safe deletion.
+
 $product_id = $_POST['id'] ?? 0;
 
 if ($product_id) {

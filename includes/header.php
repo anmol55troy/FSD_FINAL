@@ -2,6 +2,8 @@
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
+// IMPLEMENTATION: Session-based authentication — pages protect routes by
+// calling `requireLogin()` and use `$_SESSION['user_id']` / `$_SESSION['username']`.
 ?>
 <!DOCTYPE html>
 <html lang="en">

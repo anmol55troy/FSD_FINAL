@@ -28,7 +28,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
         
         if (empty($errors)) {
-        // Prepared statement to prevent SQL injection
+        // IMPLEMENTATION: CSRF verified above; authentication uses prepared
+        // statements and `password_verify()` to securely validate credentials.
         $stmt = $pdo->prepare("SELECT user_id, username, password FROM users WHERE username = ?");
         $stmt->execute([$username]);
         $user = $stmt->fetch();

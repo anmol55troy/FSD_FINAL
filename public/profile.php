@@ -26,6 +26,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['update_profile'])) {
     if (!verifyCSRFToken($_POST['csrf_token'] ?? '')) {
         $errors[] = 'Invalid CSRF token';
     } else {
+        // IMPLEMENTATION: Profile update uses CSRF verification and prepared
+        // statements to safely update user data.
         $email = trim($_POST['email'] ?? '');
         
         // Validation
@@ -112,6 +114,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['change_password'])) {
         }
     }
 }
+
+// IMPLEMENTATION: Password changes use `password_hash()` and prepared
+// statements to securely store updated passwords.
 
 include '../includes/header.php';
 ?>

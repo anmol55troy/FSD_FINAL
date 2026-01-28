@@ -1,6 +1,4 @@
-/**
- * Product Inventory System - Main JavaScript
- */
+
 
 document.addEventListener('DOMContentLoaded', function() {
     

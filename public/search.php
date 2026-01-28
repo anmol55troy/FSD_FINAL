@@ -27,6 +27,10 @@ if (isset($_GET['autocomplete'])) {
     exit;
 }
 
+// IMPLEMENTATION: Ajax autocomplete endpoint above returns JSON results;
+// prepared statements are used for safe querying. Advanced search below
+// builds parameterized queries (prepared statements) for multiple criteria.
+
 // Handle search request
 $search_results = [];
 $searched = false;
@@ -77,6 +81,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['search'])) {
         $stmt = $pdo->prepare($query);
         $stmt->execute($params);
         $search_results = $stmt->fetchAll();
+        // IMPLEMENTATION: The advanced search executes the built prepared
+        // statement with bound parameters to prevent SQL injection.
     }
 }
 

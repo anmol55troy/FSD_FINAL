@@ -1,8 +1,4 @@
 <?php
-/**
- * Database Configuration File
- * Establishes connection to MySQL database
- */
 
 // Database credentials
 define('DB_HOST', 'localhost');
@@ -25,4 +21,7 @@ try {
 } catch (PDOException $e) {
     die("Database connection failed: " . $e->getMessage());
 }
+
+// IMPLEMENTATION: PDO configured with `ATTR_EMULATE_PREPARES = false` and
+// exceptions enabled to allow use of prepared statements and proper error handling.
 ?>

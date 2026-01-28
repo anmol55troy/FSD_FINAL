@@ -14,6 +14,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (!verifyCSRFToken($_POST['csrf_token'] ?? '')) {
         $errors[] = 'Invalid CSRF token';
     } else {
+        // IMPLEMENTATION: CSRF token is verified above; server-side validation
+        // is performed and database INSERT uses a prepared statement below.
         // Get and sanitize input
         $product_name = trim($_POST['product_name'] ?? '');
         $description = trim($_POST['description'] ?? '');
@@ -58,6 +60,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                      VALUES (?, ?, ?, ?, ?)"
                 );
                 $stmt->execute([$product_name, $description, $category, $price, $quantity]);
+                // IMPLEMENTATION: Insert uses a prepared statement to prevent SQL injection.
                 
                 setFlashMessage('success', 'Product added successfully!');
                 header('Location: index.php');
