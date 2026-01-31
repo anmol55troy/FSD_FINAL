@@ -48,15 +48,40 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
     
-    // Confirm delete with better UX
-    const deleteLinks = document.querySelectorAll('.btn-delete');
-    deleteLinks.forEach(link => {
-        link.addEventListener('click', function(e) {
-            e.preventDefault();
-            const productName = this.closest('tr').querySelector('strong').textContent;
-            
-            if (confirm(`Are you sure you want to delete "${productName}"?\n\nThis action cannot be undone.`)) {
-                window.location.href = this.href;
+    // Confirm delete with better UX — supports anchors and form buttons
+    const deleteElements = document.querySelectorAll('.btn-delete');
+    deleteElements.forEach(el => {
+        // If inline handlers are present, do not override them
+        if (el.tagName === 'A' && el.hasAttribute('onclick')) return;
+        const parentForm = el.closest('form');
+        if (parentForm && parentForm.hasAttribute('onsubmit')) return;
+
+        el.addEventListener('click', function(e) {
+            // Determine product name safely
+            const row = this.closest('tr');
+            const productName = row ? (row.querySelector('strong') ? row.querySelector('strong').textContent : '') : '';
+
+            const confirmed = confirm(`Are you sure you want to delete "${productName}"?\n\nThis action cannot be undone.`);
+            if (!confirmed) {
+                e.preventDefault();
+                return;
+            }
+
+            // If this is inside a form, allow the form to submit
+            if (parentForm) {
+                // For buttons of type="button" or anchors inside forms, submit manually
+                if (this.tagName === 'A') {
+                    e.preventDefault();
+                    parentForm.submit();
+                }
+                // otherwise let the normal submit proceed
+                return;
+            }
+
+            // For anchor links, follow href
+            if (this.tagName === 'A' && this.href) {
+                // allow default navigation (no preventDefault)
+                return;
             }
         });
     });

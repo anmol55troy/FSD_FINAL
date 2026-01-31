@@ -7,5 +7,6 @@
         </div>
     </footer>
     
+    <script src="/FSD_Final/assets/main.js"></script>
 </body>
 </html>
