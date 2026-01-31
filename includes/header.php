@@ -19,9 +19,8 @@ if (session_status() === PHP_SESSION_NONE) {
             <div class="nav-brand">
                 <h2> Product Inventory</h2>
             </div>
-            <button class="mobile-menu-btn" id="mobileMenuBtn">☰</button>
             <?php if (isLoggedIn()): ?>
-            <ul class="nav-menu" id="navMenu">
+            <ul class="nav-menu">
                 <li><a href="index.php">Dashboard</a></li>
                 <li><a href="add.php">Add Product</a></li>
                 <li><a href="search.php">Search</a></li>

@@ -104,12 +104,9 @@ $page_title = 'Login';
                 <button type="submit" class="btn btn-primary btn-block">Login</button>
             </form>
             
-            <div class="login-info">
-                <!-- Registration is disabled -->
-            </div>
+            
         </div>
     </div>
     
-    <script src="/FSD_Final/assets/script.js"></script>
 </body>
 </html>
