@@ -122,12 +122,6 @@ include '../includes/header.php';
 </div>
 <?php endif; ?>
 
-<script>
-function updateSort() {
-    const sort = document.getElementById('sortSelect').value;
-    const order = document.getElementById('orderSelect').value;
-    window.location.href = `index.php?sort=${sort}&order=${order}`;
-}
-</script>
+ 
 
 <?php include '../includes/footer.php'; ?>

@@ -346,43 +346,4 @@ include '../includes/header.php';
 }
 </style>
 
-<script>
-// Password confirmation validation
-const newPasswordInput = document.getElementById('new_password');
-const confirmPasswordInput = document.getElementById('confirm_password');
-const passwordMatch = document.getElementById('password-match');
-
-function checkPasswordMatch() {
-    if (confirmPasswordInput.value === '') {
-        passwordMatch.textContent = '';
-        return;
-    }
-    
-    if (newPasswordInput.value === confirmPasswordInput.value) {
-        passwordMatch.textContent = '✓ Passwords match';
-        passwordMatch.style.color = 'var(--success-color)';
-    } else {
-        passwordMatch.textContent = '✗ Passwords do not match';
-        passwordMatch.style.color = 'var(--danger-color)';
-    }
-}
-
-if (newPasswordInput && confirmPasswordInput) {
-    newPasswordInput.addEventListener('input', checkPasswordMatch);
-    confirmPasswordInput.addEventListener('input', checkPasswordMatch);
-}
-
-// Form validation on submit
-const passwordForm = document.getElementById('passwordForm');
-if (passwordForm) {
-    passwordForm.addEventListener('submit', function(e) {
-        if (newPasswordInput.value !== confirmPasswordInput.value) {
-            e.preventDefault();
-            alert('Passwords do not match!');
-            return false;
-        }
-    });
-}
-</script>
-
 <?php include '../includes/footer.php'; ?>

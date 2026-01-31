@@ -219,58 +219,5 @@ include '../includes/header.php';
     </div>
 <?php endif; ?>
 
-<script>
-// Ajax Autocomplete
-let autocompleteTimer;
-const keywordInput = document.getElementById('keyword');
-const autocompleteResults = document.getElementById('autocomplete-results');
-
-keywordInput.addEventListener('input', function() {
-    clearTimeout(autocompleteTimer);
-    const term = this.value;
-    
-    if (term.length < 2) {
-        autocompleteResults.innerHTML = '';
-        autocompleteResults.style.display = 'none';
-        return;
-    }
-    
-    autocompleteTimer = setTimeout(() => {
-        fetch(`search.php?autocomplete=1&term=${encodeURIComponent(term)}`)
-            .then(response => response.json())
-            .then(data => {
-                if (data.length > 0) {
-                    autocompleteResults.innerHTML = data.map(item => 
-                        `<div class="autocomplete-item" onclick="selectAutocomplete('${item}')">${item}</div>`
-                    ).join('');
-                    autocompleteResults.style.display = 'block';
-                } else {
-                    autocompleteResults.innerHTML = '';
-                    autocompleteResults.style.display = 'none';
-                }
-            })
-            .catch(error => {
-                console.error('Autocomplete error:', error);
-            });
-    }, 300);
-});
-
-function selectAutocomplete(value) {
-    keywordInput.value = value;
-    autocompleteResults.innerHTML = '';
-    autocompleteResults.style.display = 'none';
-}
-
-// Close autocomplete when clicking outside
-document.addEventListener('click', function(e) {
-    if (e.target !== keywordInput) {
-        autocompleteResults.style.display = 'none';
-    }
-});
-
-function resetSearch() {
-    window.location.href = 'search.php';
-}
-</script>
-
+ 
 <?php include '../includes/footer.php'; ?>

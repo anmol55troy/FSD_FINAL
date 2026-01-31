@@ -186,24 +186,6 @@ include '../includes/header.php';
     </form>
 </div>
 
-<script>
-// Client-side validation
-document.getElementById('editProductForm').addEventListener('submit', function(e) {
-    const price = parseFloat(document.getElementById('price').value);
-    const quantity = parseInt(document.getElementById('quantity').value);
-    
-    if (price < 0) {
-        e.preventDefault();
-        alert('Price must be a positive number');
-        return false;
-    }
-    
-    if (quantity < 0) {
-        e.preventDefault();
-        alert('Quantity must be a positive number');
-        return false;
-    }
-});
-</script>
+ 
 
 <?php include '../includes/footer.php'; ?>
